@@ -6,38 +6,38 @@
 	</head>
 	<body>
 		<h1>SUDOKU</h1>
-		<form method="POST" action="#">
+		<form method="POST" action="/sudoku">
 			<section>
 				<article>
-					<input type="texto" value="1">
+					<input type="text" name="cells[0][0]" value="<%= @cells["0"]["0"] %>">
 				</article>
 				<article>
-					<input type="texto" value="2">
+					<input type="text" name="cells[0][1]" value="<%= @cells["0"]["1"] %>">
 				</article>
 				<article>
-					<input type="texto" value="3">
+					<input type="text" name="cells[0][2]" value="<%= @cells["0"]["2"] %>">
 				</article>
 			</section>
 			<section>
 				<article>
-					<input type="texto" value="4">
+					<input type="text" name="cells[1][0]" value="<%= @cells["1"]["0"] %>">
 				</article>
 				<article>
-					<input type="texto" value="5">
+					<input type="text" name="cells[1][1]" value="<%= @cells["1"]["1"] %>">
 				</article>
 				<article>
-					<input type="texto" value="6">
+					<input type="text" name="cells[1][2]" value="<%= @cells["1"]["2"] %>">
 				</article>
 			</section>
 			<section>
 				<article>
-					<input type="texto" value="7">
+					<input type="text" name="cells[2][0]" value="<%= @cells["2"]["0"] %>">
 				</article>
 				<article>
-					<input type="texto" value="8">
+					<input type="text" name="cells[2][1]" value="<%= @cells["2"]["1"] %>">
 				</article>
 				<article>
-					<input type="texto" value="9">
+					<input type="text" name="cells[2][2]" value="<%= @cells["2"]["2"] %>">
 				</article>
 			</section>
 			<input type="submit" class="jugar" value="Jugar">
