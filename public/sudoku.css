@@ -1,0 +1,25 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+form{
+	margin-bottom: 20px;
+	overflow: hidden;
+	width: 160px;
+}
+article{
+	border: 1px solid #000;
+	display: table-cell;
+	height: 50px;
+	vertical-align: middle;
+}
+article input{
+    border: none;
+	text-align: center;
+	width: 50px;
+}
+input.jugar{
+	display: block;
+	margin: 20px auto;
+	width: 100px;
+	}
