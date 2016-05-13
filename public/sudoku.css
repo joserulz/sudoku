@@ -12,46 +12,52 @@ input{
 .contenedor{
 	margin: 0 auto;
 	position: relative;
-	width: 110px;
+	width: 285px;
 }
 .num-horizontal,
 .num-vertical{
-	font-size: 12px;
+	font-size: 11px;
 	position: absolute;
 }
 .num-horizontal{
 	overflow: hidden;
-	right: 0;
+	right: 3px;
 	top: -20px;
 }
 .num-horizontal span{
 	display: block;
 	float: left;
 	text-align: center;
-	width: 35px;
+	width: 31px;
 	}
 .num-vertical{
 	left: -35px;
-	top: 0;
+	top: 3px;
 	width: 35px;
 }
 .num-vertical span{
 	display: block;
-	height: 35px;
-	line-height: 35px;
+	height: 31px;
+	line-height: 31px;
 	text-align: center;
-	width: 35px;
+	width: 30px;
 }
 form{
-	float:right;
+	overflow:hidden;
+}
+.tabla{
+	overflow:hidden;
+}
+.elemento{
+	float: left;
 }
 article{
 	border-left: 1px solid #000;
 	border-top: 1px solid #000;
 	display: table-cell;
-	height: 35px;
+	height: 30px;
 	vertical-align: middle;
-	width: 35px;
+	width: 30px;
 }
 article.lateral{
 	border-right: 1px solid #000;
@@ -66,9 +72,10 @@ article input{
 	font-size: 15px;
 	margin: 0 auto;
 	text-align: center;
-	width: 30px;
+	width: 25px;
 }
 input.jugar{
+	clear: both;
 	display: block;
 	margin: 20px auto;
 	width: 100px;
@@ -78,3 +85,4 @@ input.jugar{
 	font-size: 12px;
 	text-align: center;
 }
+

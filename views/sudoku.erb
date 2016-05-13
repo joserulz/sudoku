@@ -16,47 +16,370 @@ end
 				<span>1</span>
 				<span>2</span>
 				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+				<span>6</span>
+				<span>7</span>
+				<span>8</span>
+				<span>9</span>
 			</div>
 			<div class="num-vertical">
 				<span>1</span>
 				<span>2</span>
 				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+				<span>6</span>
+				<span>7</span>
+				<span>8</span>
+				<span>9</span>
 			</div>
 			<form method="POST" action="/sudoku">
-				<section>
-					<article>
-						<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" oninvalid="setCustomValidity('Ingresa un número del 1 al <%= @cells.length%>')"
-    onchange="try{setCustomValidity('')}catch(e){}" name="cells[0][0]" value="<%= @cells["0"]["0"] %>">
-					</article>
-					<article>
-						<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][1]" value="<%= @cells["0"]["1"] %>">
-					</article>
-					<article class="lateral">
-						<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][2]" value="<%= @cells["0"]["2"] %>">
-					</article>
-				</section>
-				<section>
-					<article>
-						<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][0]" value="<%= @cells["1"]["0"] %>">
-					</article>
-					<article>
-						<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][1]" value="<%= @cells["1"]["1"] %>">
-					</article>
-					<article class="lateral">
-						<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][2]" value="<%= @cells["1"]["2"] %>">
-					</article>
-				</section>
-				<section class="abajo">
-					<article>
-						<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][0]" value="<%= @cells["2"]["0"] %>">
-					</article>
-					<article>
-						<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][1]" value="<%= @cells["2"]["1"] %>">
-					</article>
-					<article class="lateral">
-						<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][2]" value="<%= @cells["2"]["2"] %>">
-					</article>
-				</section>
+				<div class="tabla">
+					<!-- caja 1-->
+					<div class="elemento">
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" oninvalid="setCustomValidity('Ingresa un número del 1 al <%= @cells.length%>')"
+			onchange="try{setCustomValidity('')}catch(e){}" name="cells[0][0]" value="<%= @cells["0"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][1]" value="<%= @cells["0"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][2]" value="<%= @cells["0"]["2"] %>">
+							</article>
+						</section>
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][0]" value="<%= @cells["1"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][1]" value="<%= @cells["1"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][2]" value="<%= @cells["1"]["2"] %>">
+							</article>
+						</section>
+						<section class="abajo">
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][0]" value="<%= @cells["2"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][1]" value="<%= @cells["2"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][2]" value="<%= @cells["2"]["2"] %>">
+							</article>
+						</section>
+					</div>
+					<!-- /caja 1-->
+					<!-- caja 2-->
+					<div class="elemento">
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" oninvalid="setCustomValidity('Ingresa un número del 1 al <%= @cells.length%>')"
+			onchange="try{setCustomValidity('')}catch(e){}" name="cells[0][0]" value="<%= @cells["0"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][1]" value="<%= @cells["0"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][2]" value="<%= @cells["0"]["2"] %>">
+							</article>
+						</section>
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][0]" value="<%= @cells["1"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][1]" value="<%= @cells["1"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][2]" value="<%= @cells["1"]["2"] %>">
+							</article>
+						</section>
+						<section class="abajo">
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][0]" value="<%= @cells["2"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][1]" value="<%= @cells["2"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][2]" value="<%= @cells["2"]["2"] %>">
+							</article>
+						</section>
+					</div>
+					<!-- /caja 2-->
+					<!-- caja 3-->
+					<div class="elemento">
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" oninvalid="setCustomValidity('Ingresa un número del 1 al <%= @cells.length%>')"
+			onchange="try{setCustomValidity('')}catch(e){}" name="cells[0][0]" value="<%= @cells["0"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][1]" value="<%= @cells["0"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][2]" value="<%= @cells["0"]["2"] %>">
+							</article>
+						</section>
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][0]" value="<%= @cells["1"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][1]" value="<%= @cells["1"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][2]" value="<%= @cells["1"]["2"] %>">
+							</article>
+						</section>
+						<section class="abajo">
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][0]" value="<%= @cells["2"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][1]" value="<%= @cells["2"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][2]" value="<%= @cells["2"]["2"] %>">
+							</article>
+						</section>
+					</div>
+					<!-- /caja 3-->
+					<!-- caja 4-->
+					<div class="elemento">
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" oninvalid="setCustomValidity('Ingresa un número del 1 al <%= @cells.length%>')"
+			onchange="try{setCustomValidity('')}catch(e){}" name="cells[0][0]" value="<%= @cells["0"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][1]" value="<%= @cells["0"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][2]" value="<%= @cells["0"]["2"] %>">
+							</article>
+						</section>
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][0]" value="<%= @cells["1"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][1]" value="<%= @cells["1"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][2]" value="<%= @cells["1"]["2"] %>">
+							</article>
+						</section>
+						<section class="abajo">
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][0]" value="<%= @cells["2"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][1]" value="<%= @cells["2"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][2]" value="<%= @cells["2"]["2"] %>">
+							</article>
+						</section>
+					</div>
+					<!-- /caja 4-->
+					<!-- caja 5-->
+					<div class="elemento">
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" oninvalid="setCustomValidity('Ingresa un número del 1 al <%= @cells.length%>')"
+			onchange="try{setCustomValidity('')}catch(e){}" name="cells[0][0]" value="<%= @cells["0"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][1]" value="<%= @cells["0"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][2]" value="<%= @cells["0"]["2"] %>">
+							</article>
+						</section>
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][0]" value="<%= @cells["1"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][1]" value="<%= @cells["1"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][2]" value="<%= @cells["1"]["2"] %>">
+							</article>
+						</section>
+						<section class="abajo">
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][0]" value="<%= @cells["2"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][1]" value="<%= @cells["2"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][2]" value="<%= @cells["2"]["2"] %>">
+							</article>
+						</section>
+					</div>
+					<!-- /caja 5-->
+					<!-- caja 6-->
+					<div class="elemento">
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" oninvalid="setCustomValidity('Ingresa un número del 1 al <%= @cells.length%>')"
+			onchange="try{setCustomValidity('')}catch(e){}" name="cells[0][0]" value="<%= @cells["0"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][1]" value="<%= @cells["0"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][2]" value="<%= @cells["0"]["2"] %>">
+							</article>
+						</section>
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][0]" value="<%= @cells["1"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][1]" value="<%= @cells["1"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][2]" value="<%= @cells["1"]["2"] %>">
+							</article>
+						</section>
+						<section class="abajo">
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][0]" value="<%= @cells["2"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][1]" value="<%= @cells["2"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][2]" value="<%= @cells["2"]["2"] %>">
+							</article>
+						</section>
+					</div>
+					<!-- /caja 6-->
+					<!-- caja 7-->
+					<div class="elemento">
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" oninvalid="setCustomValidity('Ingresa un número del 1 al <%= @cells.length%>')"
+			onchange="try{setCustomValidity('')}catch(e){}" name="cells[0][0]" value="<%= @cells["0"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][1]" value="<%= @cells["0"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][2]" value="<%= @cells["0"]["2"] %>">
+							</article>
+						</section>
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][0]" value="<%= @cells["1"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][1]" value="<%= @cells["1"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][2]" value="<%= @cells["1"]["2"] %>">
+							</article>
+						</section>
+						<section class="abajo">
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][0]" value="<%= @cells["2"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][1]" value="<%= @cells["2"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][2]" value="<%= @cells["2"]["2"] %>">
+							</article>
+						</section>
+					</div>
+					<!-- /caja 7-->
+					<!-- caja 8-->
+					<div class="elemento">
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" oninvalid="setCustomValidity('Ingresa un número del 1 al <%= @cells.length%>')"
+			onchange="try{setCustomValidity('')}catch(e){}" name="cells[0][0]" value="<%= @cells["0"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][1]" value="<%= @cells["0"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][2]" value="<%= @cells["0"]["2"] %>">
+							</article>
+						</section>
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][0]" value="<%= @cells["1"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][1]" value="<%= @cells["1"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][2]" value="<%= @cells["1"]["2"] %>">
+							</article>
+						</section>
+						<section class="abajo">
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][0]" value="<%= @cells["2"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][1]" value="<%= @cells["2"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][2]" value="<%= @cells["2"]["2"] %>">
+							</article>
+						</section>
+					</div>
+					<!-- /caja 8-->
+					<!-- caja 9-->
+					<div class="elemento">
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" oninvalid="setCustomValidity('Ingresa un número del 1 al <%= @cells.length%>')"
+			onchange="try{setCustomValidity('')}catch(e){}" name="cells[0][0]" value="<%= @cells["0"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][1]" value="<%= @cells["0"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][2]" value="<%= @cells["0"]["2"] %>">
+							</article>
+						</section>
+						<section>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][0]" value="<%= @cells["1"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][1]" value="<%= @cells["1"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[1][2]" value="<%= @cells["1"]["2"] %>">
+							</article>
+						</section>
+						<section class="abajo">
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][0]" value="<%= @cells["2"]["0"] %>">
+							</article>
+							<article>
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][1]" value="<%= @cells["2"]["1"] %>">
+							</article>
+							<article class="lateral">
+								<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[2][2]" value="<%= @cells["2"]["2"] %>">
+							</article>
+						</section>
+					</div>
+				<!-- /caja 9-->
+				</div>
+				
 				<input type="submit" class="jugar" value="Jugar"/>
 			</form>
 		</div>
