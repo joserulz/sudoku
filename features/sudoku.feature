@@ -17,6 +17,7 @@ Feature: Sudoku
         And I enter "3" in row 2, column 2
         And I enter "2" in row 3, column 1
         And I enter "1" in row 3, column 2
+        And I press "Jugar"
         Then I should see "Ganaste!"
 
     Scenario: Entro a jugar e ingreso un valor 4
