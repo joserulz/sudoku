@@ -25,3 +25,7 @@ end
 Then(/^I should see the image "(.*?)"$/) do |image_name|
   last_response.should have_xpath("//img[@src=\"#{image_name}\"]")
 end
+
+Then /^I should not see "(.*?)"$/ do |text|
+  expect(last_response.body).to_not include text
+end

@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<%
+@ganaste = false
+if @validacion != nil and @validacion.length == 0
+    @ganaste = true
+end
+%><!DOCTYPE html>
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
@@ -52,12 +57,12 @@
 						<input type="text" name="cells[2][2]" value="<%= @cells["2"]["2"] %>">
 					</article>
 				</section>
-				<input type="submit" class="jugar" value="Jugar">
+				<input type="submit" class="jugar" value="Jugar"/>
 			</form>
 		</div>
 		<div class="mensaje">
         <% if @validacion != nil %>
-            <% if @validacion.length == 0 %>
+            <% if @ganaste %>
                 <% @validacion << "Ganaste!" %>
             <% end %>
 		<% for @mensaje in @validacion %>
@@ -65,5 +70,12 @@
 		<% end %>
         <% end %>
 		</div>
+    <% if @ganaste %>
+        <div class="contenedor">
+		<form method="GET" action="/">
+		    <input type="submit" name="action" value="Nuevo juego"/>
+		</form>
+	</div>
+    <% end %>
 	</body>
 </html>
