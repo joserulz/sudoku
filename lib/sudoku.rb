@@ -1,10 +1,16 @@
-#require_relative "cell.rb"
+require_relative "cell.rb"
 
 class SudokuGame
-    attr_reader :resultado_validacion
+    attr_reader :resultado_validacion, :tablero
     
-	def initialize tablero_inicial, maximo_valor
-		@tablero = tablero_inicial
+	def initialize valores_tablero, rows, cols, maximo_valor
+	    @tablero = []
+	    for i in 0..rows - 1
+	        @tablero[i] = []
+	        for j in 0..cols - 1
+	            @tablero[i][j] = Cell.new i, j, valores_tablero[i][j]
+	        end
+	    end
 		@maximo_valor = maximo_valor
 		@resultado_validacion = []
 	end
@@ -21,7 +27,7 @@ class SudokuGame
 		contador = 0
 		for i in 0..@tablero.size - 1
 			for j in 0..@tablero[i].size - 1
-				if @tablero[i][j]
+				if @tablero[i][j].value != nil
 					contador += 1
 				end 
 			end
@@ -32,19 +38,9 @@ class SudokuGame
 	def validar_celdas_llenas
 		for i in 0..@tablero.size - 1
 			for j in 0..@tablero[i].size - 1
-				if !(@tablero[i][j])
+				if @tablero[i][j].value == nil
 					agregar_mensaje_validacion "Casillero vacio en fila #{i + 1}, columna #{j + 1}"
 				end
-			end
-		end
-	end
-
-	def validar_rango_numeros
-		for i in 0..@tablero.size - 1
-			for j in 0..@tablero[i].size - 1
-				if @tablero[i][j] != nil and (@tablero[i][j] < 1 or @tablero[i][j] > @maximo_valor)
-					agregar_mensaje_validacion "Valor fuera de rango en fila #{i + 1}, columna #{j + 1}"
-				end 
 			end
 		end
 	end
@@ -53,17 +49,36 @@ class SudokuGame
 		numeros_ingresados = []
 		for i in 0..@tablero.size - 1
 			for j in 0..@tablero[i].size - 1
-                if @tablero[i][j] != nil
-					if !(numeros_ingresados.include? @tablero[i][j])
-						numeros_ingresados << @tablero[i][j]
+                if @tablero[i][j].value != nil
+					if !(numeros_ingresados.include? @tablero[i][j].value)
+						numeros_ingresados << @tablero[i][j].value
 					else
-					    agregar_mensaje_validacion "Valor '#{@tablero[i][j]}' repetido en fila #{i + 1}"
+					    agregar_mensaje_validacion "Valor '#{@tablero[i][j].value}' repetido en fila #{i + 1}"
 					end 
 				end
                 end
 			numeros_ingresados = []
 		end
 	end
+
+    def procesar_tablero nuevo_tablero
+        for i in 0..@tablero.size - 1
+            for j in 0..@tablero[i].size - 1
+                celda = @tablero[i][j]
+                if !celda.read_only
+                    valor = nuevo_tablero[i][j]
+                    if valor != nil and valor != celda.value
+                        if valor >= 1 and valor <= @maximo_valor
+                            celda.set_value valor
+                        else
+                            agregar_mensaje_validacion "Valor fuera de rango en fila #{i + 1}, columna #{j + 1}"
+                        end
+                    end
+                end
+            end
+        end
+        return @tablero
+    end
 
     def agregar_mensaje_validacion mensaje
         if !(@resultado_validacion.include?(mensaje))
@@ -73,7 +88,6 @@ class SudokuGame
 
     def validar_tablero
         validar_celdas_llenas
-        validar_rango_numeros
         existen_repetidos_filas
     end
 
