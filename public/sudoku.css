@@ -3,50 +3,64 @@ body{
 	padding: 0;
 }
 h1{
+	margin-bottom: 30px;
 	text-align: center;
 	}
 .contenedor{
 	margin: 0 auto;
-	overflow: hidden;
-	width: 170px;
+	position: relative;
+	width: 110px;
+}
+.num-horizontal,
+.num-vertical{
+	font-size: 12px;
+	position: absolute;
 }
 .num-horizontal{
-	clear: both;
-	float: right;
-	margin-bottom: 10px;
 	overflow: hidden;
-	width: 170px;
+	right: 0;
+	top: -20px;
 }
 .num-horizontal span{
 	display: block;
 	float: left;
 	text-align: center;
-	width: 42px;
+	width: 35px;
 	}
 .num-vertical{
-	float: left;
-	width: 40px;
+	left: -35px;
+	top: 0;
+	width: 35px;
 }
 .num-vertical span{
 	display: block;
-	height: 40px;
-	padding-top: 5px;
+	height: 35px;
+	line-height: 35px;
 	text-align: center;
-	width: 40px;
+	width: 35px;
 }
 form{
 	float:right;
 }
 article{
-	border: 1px solid #000;
+	border-left: 1px solid #000;
+	border-top: 1px solid #000;
 	display: table-cell;
-	height: 40px;
+	height: 35px;
 	vertical-align: middle;
+	width: 35px;
+}
+article.lateral{
+	border-right: 1px solid #000;
+}
+.abajo article{
+	border-bottom: 1px solid #000;
 }
 article input{
     border: none;
+	font-size: 15px;
 	text-align: center;
-	width: 40px;
+	width: 100%;
 }
 input.jugar{
 	display: block;
@@ -54,6 +68,7 @@ input.jugar{
 	width: 100px;
 	}
 .mensaje{
+	clear: both;
 	font-size: 12px;
 	text-align: center;
 }
