@@ -32,3 +32,16 @@ Feature: Sudoku
         And I enter "2" in row 1, column 3
         And I press "Jugar"
         Then I should see "Valor '2' repetido en fila 1"
+
+    Scenario: Entro a jugar e ingreso una letra en una fila 1, columna 1
+        Given I visit the homepage
+        When I enter "a" in row 1, column 1
+        And I press "Jugar"
+        Then I should see "Valor fuera de rango en fila 1, columna 1"
+
+
+    Scenario: Entro a jugar e ingreso un número negativo en una fila 1, columna 1
+        Given I visit the homepage
+        When I enter "-1" in row 1, column 1
+        And I press "Jugar"
+        Then I should see "Valor fuera de rango en fila 1, columna 1"
