@@ -32,7 +32,7 @@ end
 post '/sudoku' do
     @cells = params["cells"]
 	tablero = transformar_a_arreglo @cells
-	game = SudokuGame.new tablero, nil, 3
+	game = SudokuGame.new tablero, 3
 	game.validar_tablero
 	@validacion = game.resultado_validacion
     erb :sudoku

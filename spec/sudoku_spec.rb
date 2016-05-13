@@ -8,7 +8,7 @@ describe "Sudoku" do
 				[nil, 1, nil],
 				[nil, nil, nil]
 			]
-        game = SudokuGame.new tablero, nil, 3
+        game = SudokuGame.new tablero, 3
  
         game.obtener_nro_filas.should == 3
         game.obtener_nro_columnas.should == 3
@@ -20,7 +20,7 @@ describe "Sudoku" do
 				[nil, 1, nil],
 				[nil, nil, nil]
 			]
-        game = SudokuGame.new tablero, nil, 3
+        game = SudokuGame.new tablero, 3
         game.obtener_num_celdas_llenas.should >= 1
     end
 
@@ -30,7 +30,7 @@ describe "Sudoku" do
 				[2, 3, 1],
 				[3, 1, 4]
 			]
-        game = SudokuGame.new tablero, nil, 3
+        game = SudokuGame.new tablero, 3
         game.validar_tablero
         expect(game.resultado_validacion).to include("Valor fuera de rango en fila 3, columna 3")
     end
@@ -41,7 +41,7 @@ describe "Sudoku" do
 				[2, 3, 1],
 				[3, 1, nil]
 			]
-        game = SudokuGame.new tablero, nil, 3
+        game = SudokuGame.new tablero, 3
         game.validar_tablero
         expect(game.resultado_validacion).to include("Casillero vacio en fila 3, columna 3")
     end
@@ -52,7 +52,7 @@ describe "Sudoku" do
 				[2, 3, 1],
 				[3, 1, 2]
 			]
-        game = SudokuGame.new tablero, nil, 3
+        game = SudokuGame.new tablero, 3
         game.validar_tablero
         expect(game.resultado_validacion).to include("Valor '2' repetido en fila 1")
     end
@@ -63,7 +63,7 @@ describe "Sudoku" do
             [1, nil, 2],
             [nil, nil, 3]
         ]
-        game = SudokuGame.new tablero, nil, 3
+        game = SudokuGame.new tablero, 3
         game.validar_tablero
         expect(game.resultado_validacion).to_not include("Valor '' repetido en fila 1")
         expect(game.resultado_validacion).to_not include("Valor '' repetido en fila 3")
@@ -75,7 +75,7 @@ describe "Sudoku" do
 				[2, 3, 1],
 				[3, 1, 2]
 			]
-        game = SudokuGame.new tablero, nil, 3
+        game = SudokuGame.new tablero, 3
         game.validar_tablero
         expect(game.resultado_validacion).to be_empty
     end
@@ -86,7 +86,7 @@ describe "Sudoku" do
 				[1, 3, 2],
 				[3, 1, 2]
 			]
-        game = SudokuGame.new tablero, nil, 3
+        game = SudokuGame.new tablero, 3
         game.validar_tablero
         expect(game.resultado_validacion).to include("Valor '2' repetido en fila 1")
     end

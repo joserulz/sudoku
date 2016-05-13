@@ -1,11 +1,11 @@
+#require_relative "cell.rb"
 
 class SudokuGame
     attr_reader :resultado_validacion
     
-	def initialize tablero_inicial, tablero_anterior, maximo_valor
+	def initialize tablero_inicial, maximo_valor
 		@tablero = tablero_inicial
 		@maximo_valor = maximo_valor
-		@anterior = tablero_anterior
 		@resultado_validacion = []
 	end
 
