@@ -80,5 +80,16 @@ describe "Sudoku" do
         expect(game.resultado_validacion).to be_empty
     end
 
+    it "Coloco 2 en toda una fila" do
+		tablero = [
+				[2, 2, 2],
+				[1, 3, 2],
+				[3, 1, 2]
+			]
+        game = SudokuGame.new tablero, nil, 3
+        game.validar_tablero
+        expect(game.resultado_validacion).to include("Valor '2' repetido en fila 1")
+    end
+
 
 end

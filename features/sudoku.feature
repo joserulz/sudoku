@@ -25,3 +25,10 @@ Feature: Sudoku
         When I enter "4" in row 1, column 1
         And I press "Jugar"
         Then I should see "Valor fuera de rango en fila 1, columna 1"
+
+    Scenario: Entro a jugar e ingreso un mismo valor en una fila
+        Given I visit the homepage
+        When I enter "2" in row 1, column 1
+        And I enter "2" in row 1, column 3
+        And I press "Jugar"
+        Then I should see "Valor '2' repetido en fila 1"
