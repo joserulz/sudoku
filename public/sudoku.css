@@ -6,6 +6,9 @@ h1{
 	margin-bottom: 30px;
 	text-align: center;
 	}
+input{
+	-webkit-appearance none;
+}
 .contenedor{
 	margin: 0 auto;
 	position: relative;
@@ -55,12 +58,15 @@ article.lateral{
 }
 .abajo article{
 	border-bottom: 1px solid #000;
+	text-align: center;
 }
 article input{
     border: none;
+	display: block;
 	font-size: 15px;
+	margin: 0 auto;
 	text-align: center;
-	width: 100%;
+	width: 30px;
 }
 input.jugar{
 	display: block;
