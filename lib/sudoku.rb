@@ -26,6 +26,17 @@ class SudokuGame
 		contador
 	end
 
+	def validar_celdas_llenas?
+		for i in 0..@tablero.size - 1
+			for j in 0..@tablero[i].size - 1
+				if !(@tablero[i][j])
+					fail "Existen celdas vacias"
+				end 
+			end
+		end
+		true
+	end
+
 	def validar_rango_numeros?
 		for i in 0..@tablero.size - 1
 			for j in 0..@tablero[i].size - 1
@@ -53,7 +64,16 @@ class SudokuGame
 	end
 
 	def validar_reglas?
-		return validar_rango_numeros? && existen_repetidos_fila?
+		begin
+			if validar_celdas_llenas? && validar_rango_numeros? && existen_repetidos_fila?
+				return "Cumple con las reglas"
+			else
+				return "No cumple"
+			end
+		rescue Exception => e
+			puts "RULES EXCEPTION"
+		   	return e.message
+		end
 	end
 
 end

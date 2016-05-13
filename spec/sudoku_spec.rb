@@ -45,7 +45,7 @@ describe "Sudoku" do
 			]
 		rango = [1, 2, 3] 
         game = SudokuGame.new tablero, rango
-        expect { game.validar_rango_numeros? }.to raise_error("Valor fuera de rango")
+        expect { game.validar_celdas_llenas? }.to raise_error("Existen celdas vacias")
     end
 
     it "sudoku no debe tener filas repetidas" do
@@ -67,7 +67,7 @@ describe "Sudoku" do
 			]
 		rango = [1, 2, 3] 
         game = SudokuGame.new tablero, rango
-        game.validar_reglas?.should == true
+        game.validar_reglas?.should == "Cumple con las reglas"
     end
 
 

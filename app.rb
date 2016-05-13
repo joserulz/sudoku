@@ -1,4 +1,8 @@
+require_relative "./lib/sudoku.rb"
+require_relative "./lib/helper.rb"
+
 require 'sinatra'
+
 
 enable :sessions
 
@@ -26,7 +30,13 @@ end
 
 post '/sudoku' do
     @cells = params["cells"]
-    puts "Parametros:"
-    puts @cells
+	puts "ENTRADA DEL POST"
+	puts @cells
+	tablero = transformar_a_arreglo @cells
+	rango = [1, 2, 3]
+	puts "ENTRADA A LA CLASE"
+	puts tablero
+	game = SudokuGame.new tablero, rango
+	@respuesta = game.validar_reglas?
     erb :sudoku
 end
