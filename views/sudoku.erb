@@ -45,6 +45,9 @@
 
 		<div class="mensaje">
         <% if @validacion != nil %>
+            <% if @validacion.length == 0 %>
+                <% @validacion << "Ganaste!" %>
+            <% end %>
 		<% for @mensaje in @validacion %>
 		    <p align="center"><%= @mensaje %></p>
 		<% end %>
