@@ -1,10 +1,12 @@
 
 class SudokuGame
-
+    attr_reader :resultado_validacion
+    
 	def initialize tablero_inicial, tablero_anterior, maximo_valor
 		@tablero = tablero_inicial
 		@maximo_valor = maximo_valor
 		@anterior = tablero_anterior
+		@resultado_validacion = []
 	end
 
 	def obtener_nro_filas
@@ -27,55 +29,45 @@ class SudokuGame
 		contador
 	end
 
-	def validar_celdas_llenas?
+	def validar_celdas_llenas
 		for i in 0..@tablero.size - 1
 			for j in 0..@tablero[i].size - 1
 				if !(@tablero[i][j])
-					fail "Existen celdas vacias"
+					@resultado_validacion << "Casillero vacio en fila #{i + 1}, columna #{j + 1}"
 				end 
 			end
 		end
-		true
 	end
 
-	def validar_rango_numeros?
+	def validar_rango_numeros
 		for i in 0..@tablero.size - 1
 			for j in 0..@tablero[i].size - 1
-				if @tablero[i][j] < 1 or @tablero[i][j] > @maximo_valor
-					fail "Valor fuera de rango"
+				if @tablero[i][j] != nil and (@tablero[i][j] < 1 or @tablero[i][j] > @maximo_valor)
+					@resultado_validacion << "Valor fuera de rango en fila #{i + 1}, columna #{j + 1}"
 				end 
 			end
 		end
-		true
 	end
 
-	def existen_repetidos_fila?
+	def existen_repetidos_filas
 		numeros_ingresados = []
 		for i in 0..@tablero.size - 1
 			for j in 0..@tablero[i].size - 1
 				if !(numeros_ingresados.include? @tablero[i][j])
 					numeros_ingresados << @tablero[i][j]
 				else
-					fail "Existen valores repetidos en fila"
+				    @resultado_validacion << "Valor '#{@tablero[i][j]}' repetido en fila #{i + 1}"
 				end 
 			end
 			numeros_ingresados = []			
 		end
-		true
 	end
 
-	def validar_reglas?
-		begin
-			if validar_celdas_llenas? && validar_rango_numeros? && existen_repetidos_fila?
-				return "Cumple con las reglas"
-			else
-				return "No cumple"
-			end
-		rescue Exception => e
-			puts "RULES EXCEPTION"
-		   	return e.message
-		end
-	end
+    def validar_tablero
+        validar_celdas_llenas
+        validar_rango_numeros
+        existen_repetidos_filas
+    end
 
 end
 

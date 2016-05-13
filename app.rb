@@ -24,7 +24,7 @@ get '/' do
             "2" => 3
         }
     }
-    puts @cells
+    puts @cells3
     session['cells'] = transformar_a_arreglo @cells
     erb :sudoku
 end
@@ -34,9 +34,9 @@ post '/sudoku' do
 	puts "ENTRADA DEL POST"
 	puts @cells
 	tablero = transformar_a_arreglo @cells
-	rango = [1, 2, 3]
 	puts "ENTRADA A LA CLASE"
-	game = SudokuGame.new tablero, rango
-	@respuesta = game.validar_reglas?
+	game = SudokuGame.new tablero, nil, 3
+	game.validar_tablero
+	@validacion = game.resultado_validacion
     erb :sudoku
 end

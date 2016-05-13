@@ -31,7 +31,8 @@ describe "Sudoku" do
 				[3, 1, 4]
 			]
         game = SudokuGame.new tablero, nil, 3
-		expect { game.validar_rango_numeros? }.to raise_error("Valor fuera de rango")
+        game.validar_tablero
+        expect(game.resultado_validacion).to include("Valor fuera de rango en fila 3, columna 3")
     end
 
     it "sudoku no debe tener celdas vacias" do
@@ -41,7 +42,8 @@ describe "Sudoku" do
 				[3, 1, nil]
 			]
         game = SudokuGame.new tablero, nil, 3
-        expect { game.validar_celdas_llenas? }.to raise_error("Existen celdas vacias")
+        game.validar_tablero
+        expect(game.resultado_validacion).to include("Casillero vacio en fila 3, columna 3")
     end
 
     it "sudoku no debe tener filas repetidas" do
@@ -51,7 +53,8 @@ describe "Sudoku" do
 				[3, 1, 2]
 			]
         game = SudokuGame.new tablero, nil, 3
-		expect { game.existen_repetidos_fila? }.to raise_error("Existen valores repetidos en fila")
+        game.validar_tablero
+        expect(game.resultado_validacion).to include("Valor '2' repetido en fila 1")
     end
 
     it "sudoku envia el juego perfecto" do
@@ -61,7 +64,8 @@ describe "Sudoku" do
 				[3, 1, 2]
 			]
         game = SudokuGame.new tablero, nil, 3
-        game.validar_reglas?.should == "Cumple con las reglas"
+        game.validar_tablero
+        expect(game.resultado_validacion).to be_empty
     end
 
 
