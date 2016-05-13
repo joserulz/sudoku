@@ -25,7 +25,8 @@ end
 			<form method="POST" action="/sudoku">
 				<section>
 					<article>
-						<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][0]" value="<%= @cells["0"]["0"] %>">
+						<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" oninvalid="setCustomValidity('Ingresa un número del 1 al <%= @cells.length%>')"
+    onchange="try{setCustomValidity('')}catch(e){}" name="cells[0][0]" value="<%= @cells["0"]["0"] %>">
 					</article>
 					<article>
 						<input type="text" required pattern="[1-<%= @cells.length%>]" title="Ingresa un número del 1 al <%= @cells.length%>" x-moz-errormessage="Ingresa un número del 1 al <%= @cells.length%>" name="cells[0][1]" value="<%= @cells["0"]["1"] %>">
