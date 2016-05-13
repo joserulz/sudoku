@@ -18,3 +18,9 @@ Feature: Sudoku
         And I enter "2" in row 3, column 1
         And I enter "1" in row 3, column 2
         Then I should see "Ganaste!"
+
+    Scenario: Entro a jugar e ingreso un valor 4
+        Given I visit the homepage
+        When I enter "4" in row 1, column 1
+        And I press "Jugar"
+        Then I should see "Valor fuera de rango en fila 1, columna 1"
