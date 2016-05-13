@@ -31,10 +31,7 @@ end
 
 post '/sudoku' do
     @cells = params["cells"]
-	puts "ENTRADA DEL POST"
-	puts @cells
 	tablero = transformar_a_arreglo @cells
-	puts "ENTRADA A LA CLASE"
 	game = SudokuGame.new tablero, nil, 3
 	game.validar_tablero
 	@validacion = game.resultado_validacion
