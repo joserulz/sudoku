@@ -34,7 +34,7 @@ class SudokuGame
 			for j in 0..@tablero[i].size - 1
 				if !(@tablero[i][j])
 					@resultado_validacion << "Casillero vacio en fila #{i + 1}, columna #{j + 1}"
-				end 
+				end
 			end
 		end
 	end
@@ -53,13 +53,15 @@ class SudokuGame
 		numeros_ingresados = []
 		for i in 0..@tablero.size - 1
 			for j in 0..@tablero[i].size - 1
-				if !(numeros_ingresados.include? @tablero[i][j])
-					numeros_ingresados << @tablero[i][j]
-				else
-				    @resultado_validacion << "Valor '#{@tablero[i][j]}' repetido en fila #{i + 1}"
-				end 
-			end
-			numeros_ingresados = []			
+                if @tablero[i][j] != nil
+					if !(numeros_ingresados.include? @tablero[i][j])
+						numeros_ingresados << @tablero[i][j]
+					else
+					    @resultado_validacion << "Valor '#{@tablero[i][j]}' repetido en fila #{i + 1}"
+					end 
+				end
+                end
+			numeros_ingresados = []
 		end
 	end
 

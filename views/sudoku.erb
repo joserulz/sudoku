@@ -43,6 +43,12 @@
 			<input type="submit" class="jugar" value="Jugar">
 		</form>
 
-		<div> <%= @respuesta %> </div>
+		<div>
+        <% if @validacion != nil %>
+		<% for @mensaje in @validacion %>
+		    <p align="center"><%= @mensaje %></p>
+		<% end %>
+        <% end %>
+		</div>
 	</body>
 </html>

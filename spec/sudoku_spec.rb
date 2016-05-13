@@ -57,6 +57,18 @@ describe "Sudoku" do
         expect(game.resultado_validacion).to include("Valor '2' repetido en fila 1")
     end
 
+    it "sudoku no debe mostrar valor repetido para nil" do
+        tablero = [
+            [nil, 2, nil],
+            [1, nil, 2],
+            [nil, nil, 3]
+        ]
+        game = SudokuGame.new tablero, nil, 3
+        game.validar_tablero
+        expect(game.resultado_validacion).to_not include("Valor '' repetido en fila 1")
+        expect(game.resultado_validacion).to_not include("Valor '' repetido en fila 3")
+    end
+
     it "sudoku envia el juego perfecto" do
 		tablero = [
 				[1, 2, 3],
