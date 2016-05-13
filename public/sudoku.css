@@ -5,10 +5,37 @@ body{
 h1{
 	text-align: center;
 	}
-form{
+.contenedor{
 	margin: 0 auto;
 	overflow: hidden;
-	width: 130px;
+	width: 170px;
+}
+.num-horizontal{
+	clear: both;
+	float: right;
+	margin-bottom: 10px;
+	overflow: hidden;
+	width: 170px;
+}
+.num-horizontal span{
+	display: block;
+	float: left;
+	text-align: center;
+	width: 42px;
+	}
+.num-vertical{
+	float: left;
+	width: 40px;
+}
+.num-vertical span{
+	display: block;
+	height: 40px;
+	padding-top: 5px;
+	text-align: center;
+	width: 40px;
+}
+form{
+	float:right;
 }
 article{
 	border: 1px solid #000;
@@ -21,7 +48,6 @@ article input{
 	text-align: center;
 	width: 40px;
 }
-
 input.jugar{
 	display: block;
 	margin: 20px auto;
@@ -29,4 +55,5 @@ input.jugar{
 	}
 .mensaje{
 	font-size: 12px;
+	text-align: center;
 }
