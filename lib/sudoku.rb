@@ -33,7 +33,7 @@ class SudokuGame
 		for i in 0..@tablero.size - 1
 			for j in 0..@tablero[i].size - 1
 				if !(@tablero[i][j])
-					@resultado_validacion << "Casillero vacio en fila #{i + 1}, columna #{j + 1}"
+					agregar_mensaje_validacion "Casillero vacio en fila #{i + 1}, columna #{j + 1}"
 				end
 			end
 		end
@@ -43,7 +43,7 @@ class SudokuGame
 		for i in 0..@tablero.size - 1
 			for j in 0..@tablero[i].size - 1
 				if @tablero[i][j] != nil and (@tablero[i][j] < 1 or @tablero[i][j] > @maximo_valor)
-					@resultado_validacion << "Valor fuera de rango en fila #{i + 1}, columna #{j + 1}"
+					agregar_mensaje_validacion "Valor fuera de rango en fila #{i + 1}, columna #{j + 1}"
 				end 
 			end
 		end
@@ -57,13 +57,19 @@ class SudokuGame
 					if !(numeros_ingresados.include? @tablero[i][j])
 						numeros_ingresados << @tablero[i][j]
 					else
-					    @resultado_validacion << "Valor '#{@tablero[i][j]}' repetido en fila #{i + 1}"
+					    agregar_mensaje_validacion "Valor '#{@tablero[i][j]}' repetido en fila #{i + 1}"
 					end 
 				end
                 end
 			numeros_ingresados = []
 		end
 	end
+
+    def agregar_mensaje_validacion mensaje
+        if !(@resultado_validacion.include?(mensaje))
+            @resultado_validacion << mensaje
+        end
+    end
 
     def validar_tablero
         validar_celdas_llenas
