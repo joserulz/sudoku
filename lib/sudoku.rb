@@ -1,9 +1,10 @@
 
 class SudokuGame
 
-	def initialize tablero_inicial, rango_inicial
+	def initialize tablero_inicial, tablero_anterior, maximo_valor
 		@tablero = tablero_inicial
-		@rango = rango_inicial
+		@maximo_valor = maximo_valor
+		@anterior = tablero_anterior
 	end
 
 	def obtener_nro_filas
@@ -40,7 +41,7 @@ class SudokuGame
 	def validar_rango_numeros?
 		for i in 0..@tablero.size - 1
 			for j in 0..@tablero[i].size - 1
-				if !(@rango.include? @tablero[i][j])
+				if @tablero[i][j] < 1 or @tablero[i][j] > @maximo_valor
 					fail "Valor fuera de rango"
 				end 
 			end

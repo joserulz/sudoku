@@ -8,8 +8,7 @@ describe "Sudoku" do
 				[nil, 1, nil],
 				[nil, nil, nil]
 			]
-		rango = [1, 2, 3]
-        game = SudokuGame.new tablero, rango
+        game = SudokuGame.new tablero, nil, 3
  
         game.obtener_nro_filas.should == 3
         game.obtener_nro_columnas.should == 3
@@ -21,8 +20,7 @@ describe "Sudoku" do
 				[nil, 1, nil],
 				[nil, nil, nil]
 			]
-		rango = [1, 2, 3, nil] 
-        game = SudokuGame.new tablero, rango
+        game = SudokuGame.new tablero, nil, 3
         game.obtener_num_celdas_llenas.should >= 1
     end
 
@@ -32,8 +30,7 @@ describe "Sudoku" do
 				[2, 3, 1],
 				[3, 1, 4]
 			]
-		rango = [1, 2, 3] 
-        game = SudokuGame.new tablero, rango
+        game = SudokuGame.new tablero, nil, 3
 		expect { game.validar_rango_numeros? }.to raise_error("Valor fuera de rango")
     end
 
@@ -43,8 +40,7 @@ describe "Sudoku" do
 				[2, 3, 1],
 				[3, 1, nil]
 			]
-		rango = [1, 2, 3] 
-        game = SudokuGame.new tablero, rango
+        game = SudokuGame.new tablero, nil, 3
         expect { game.validar_celdas_llenas? }.to raise_error("Existen celdas vacias")
     end
 
@@ -54,8 +50,7 @@ describe "Sudoku" do
 				[2, 3, 1],
 				[3, 1, 2]
 			]
-		rango = [1, 2, 3] 
-        game = SudokuGame.new tablero, rango
+        game = SudokuGame.new tablero, nil, 3
 		expect { game.existen_repetidos_fila? }.to raise_error("Existen valores repetidos en fila")
     end
 
@@ -65,11 +60,9 @@ describe "Sudoku" do
 				[2, 3, 1],
 				[3, 1, 2]
 			]
-		rango = [1, 2, 3] 
-        game = SudokuGame.new tablero, rango
+        game = SudokuGame.new tablero, nil, 3
         game.validar_reglas?.should == "Cumple con las reglas"
     end
-
 
 
 end
